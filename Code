@@ -1,0 +1,71 @@
+import numpy as np
+import math as mt
+import matplotlib.pyplot as plt
+
+print('This program shows the ideal and non-ideal trajectory of motion')
+print('Enter the corresponding values: ')
+
+print('Initial height of the projectile above the ground in meters: ')
+hi=float(input('hi= '));
+print('')
+
+print('Magnitude of velocity in meter per second-square: ')
+vi=float(input('vi= '));
+print('')
+
+print('The angle in degrees with respect to the +x-axis at which the projectile is fired: ')
+thet=float(input('thet= '));
+print('')
+
+print('x-component of acceleration in meter per second-square: ')
+xi=float(input('xi= '));
+print('')
+
+print('y-component of acceleration in meter per second-square: ')
+yi=float(input('yi= '));
+print('')
+
+if yi==0:
+    mt.sys.exit('Invalid input!')
+    
+theta=mt.radians(thet);
+vix=vi*mt.cos(theta); viy=vi*mt.sin(theta);
+vi=np.sqrt((pow(vix,2))+(pow(viy,2)));
+
+vfx=(np.sqrt((pow(vix,2))+2*xi)); vfy=(np.sqrt((pow(viy,2))+2*(-(yi))));
+vf=np.sqrt((pow(vfx,2))+(pow(vfy,2)));
+a=np.sqrt((pow(xi,2))+(pow(yi,2)));
+
+t=((vf-vi)/a);
+
+t=t+1;
+x=(vix*np.linspace(0,t))+0.5*xi*np.linspace(0,t)**2
+y=(viy*np.linspace(0,t))+0.5*yi*np.linspace(0,t)**2
+plt.plot(x,y)
+plt.xlabel("Distance "); plt.ylabel("Height ");
+plt.grid()
+
+
+        
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+ 
+     
+
